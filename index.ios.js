@@ -1,53 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
+  NavigatorIOS
 } from 'react-native';
 
+import Home from './src/Home';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: 'AIzaSyDtmGJqBJrmwN5_LNJR2WVuGsh1fE5GHQI',
+  authDomain: 'nafnster.firebaseapp.com',
+  databaseURL: 'https://nafnster.firebaseio.com',
+  projectId: 'nafnster',
+  storageBucket: 'nafnster.appspot.com',
+  messagingSenderId: '123888301709'
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const authProvider = new firebase.auth.FacebookAuthProvider();
+
 export default class Nafnster extends Component {
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <NavigatorIOS
+        initialRoute={{
+          component: Home,
+          title: 'Home',
+        }}
+        style={{flex: 1}}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('Nafnster', () => Nafnster);
