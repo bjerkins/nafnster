@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-const { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 import { StyleSheet, Text, View, } from 'react-native';
 
-export default class Login extends Component {
+export default class Home extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -11,21 +10,17 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-         <Text style={styles.loginText}>
-          Welcome to React Native!
+      <View>
+         <Text style={styles.homeText}>
+            Welcome to React Native!
         </Text>
-        <FBLogin />
       </View>
     )
   }
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 20
-  },
-  loginText: {
+  homeText: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,

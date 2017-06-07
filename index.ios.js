@@ -9,7 +9,8 @@ import {
   NavigatorIOS
 } from 'react-native';
 
-import Home from './src/Home';
+import Home from './src/scenes/Home';
+import Login from './src/scenes/Login';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -20,8 +21,7 @@ const firebaseConfig = {
   storageBucket: 'nafnster.appspot.com',
   messagingSenderId: '123888301709'
 };
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const authProvider = new firebase.auth.FacebookAuthProvider();
+firebase.initializeApp(firebaseConfig);
 
 export default class Nafnster extends Component {
 
@@ -29,13 +29,27 @@ export default class Nafnster extends Component {
     return (
       <NavigatorIOS
         initialRoute={{
-          component: Home,
-          title: 'Home',
+          component: Login,
+          title: 'Login',
+          passProps: { title: 'Login' },
         }}
-        style={{flex: 1}}
+        style={styles.container}
+        itemWrapperStyle={styles.itemStyles}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  itemStyles: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  }
+});
 
 AppRegistry.registerComponent('Nafnster', () => Nafnster);
