@@ -3,47 +3,62 @@ const { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 import { StyleSheet, Text, View, } from 'react-native';
 import * as firebase from 'firebase';
 
+import * as auth from '../auth/auth';
+
 export default class Login extends Component {
 
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
-  }
+    static propTypes = {
+        onLoginSuccess: PropTypes.func.isRequired,
+    };
 
-  onLogin(data) {
-    const token = data.credentials.token;
-    // Build Firebase credential with the Facebook access token.
-    const credential = firebase.auth.FacebookAuthProvider.credential(token);
+    onLogin = (data) => {
+        const token = data.credentials.token;
+        const userId = data.credentials.userId;
+        const credential = firebase.auth.FacebookAuthProvider.credential(token);
+        firebase
+            .auth()
+            .signInWithCredential(credential)
+            .then(() => {
+                auth.setUser({ userId, token });
+                this.props.onLoginSuccess();
+            })
+            .catch(error => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                const credential = error.credential;
+                console.error(errorCode, errorMessage, email, credential);
+            });
+    }
 
-    // Sign in with credential from the Google user.
-    firebase.auth().signInWithCredential(credential).catch(function (error) {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      const credential = error.credential;
-      console.log(errorCode, errorMessage, email, credential);
-    });
-  }
-
-  render() {
-    return (
-      <View>
-        <Text style={styles.loginText}>
-          Please login!
-        </Text>
-        <FBLogin onLogin={this.onLogin} />
-      </View>
-    )
-  }
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>
+                    Please login
+                </Text>
+                <FBLogin
+                    loginBehavior={FBLoginManager.LoginBehaviors.Native}
+                    onLogin={this.onLogin}
+                />
+            </View>
+        )
+    }
 };
 
 const styles = StyleSheet.create({
-  homeText: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    homeText: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    }
 });
