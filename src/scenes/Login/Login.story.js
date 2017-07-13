@@ -8,6 +8,6 @@ import { linkTo } from '@storybook/addon-links';
 import Login from './Login.layout';
 
 storiesOf('Login Scene', module)
-  .add('default', () =>
-    <Login onLogin={action('login clicked')}/>
-  )
+    .add('Default', () =>
+        <Login onLogin={action('login clicked')} />
+    )

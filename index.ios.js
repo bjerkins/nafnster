@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    NavigatorIOS,
-    Modal,
-} from 'react-native';
+import { AppRegistry, StyleSheet, View, Modal } from 'react-native';
 
 import * as auth from './src/auth/auth';
-import Home from './src/scenes/Home';
+import App from './src/scenes/App';
 import Login from './src/scenes/Login/Login';
 
 // Initialize Firebase
@@ -36,7 +28,7 @@ export default class Nafnster extends Component {
     }
 
     checkLogin = async () => {
-        const user = await auth.getUser();
+        const user = await auth.getToken();
         if (user === null) {
             this.setState({ loginModalOpen: true })
         }
@@ -54,15 +46,6 @@ export default class Nafnster extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <NavigatorIOS
-                    initialRoute={{
-                        component: Home,
-                        title: 'Home',
-                        passProps: { onLogOutSuccess: this.onLogOutSuccess },
-                    }}
-                    itemWrapperStyle={styles.itemStyles}
-                    style={{ flex: 1 }}
-                />
                 {this.state.loginModalOpen &&
                     <Modal
                         animationType={"slide"}
@@ -72,7 +55,30 @@ export default class Nafnster extends Component {
                         <Login onLoginSuccess={this.onLoginSuccess} />
                     </Modal>
                 }
+                {!this.state.loginModalOpen &&
+                    <App onLogOutSuccess={this.onLogOutSuccess} />
+                }
             </View>
+            // <View style={styles.container}>
+            //     <NavigatorIOS
+            //         initialRoute={{
+            //             component: App,
+            //             title: 'Home',
+            //             passProps: { onLogOutSuccess: this.onLogOutSuccess },
+            //         }}
+            //         itemWrapperStyle={styles.itemStyles}
+            //         style={{ flex: 1 }}
+            //     />
+            //     {this.state.loginModalOpen &&
+            //         <Modal
+            //             animationType={"slide"}
+            //             transparent={false}
+            //             visible={true}
+            //         >
+            //             <Login onLoginSuccess={this.onLoginSuccess} />
+            //         </Modal>
+            //     }
+            // </View>
         );
     }
 }
