@@ -12,7 +12,7 @@ import {
 
 import * as auth from './src/auth/auth';
 import Home from './src/scenes/Home';
-import Login from './src/scenes/Login';
+import Login from './src/scenes/Login/Login';
 
 // Initialize Firebase
 const firebaseConfig = {

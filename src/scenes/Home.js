@@ -12,9 +12,7 @@ export default class Home extends Component {
     render() {
         return (
             <View>
-                <FBLogin
-                    onLogout={this.props.onLogOutSuccess}
-                />
+                <FBLogin onLogout={this.props.onLogOutSuccess} />
             </View>
         );
     }

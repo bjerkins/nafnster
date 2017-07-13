@@ -1,11 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-const { FBLogin, FBLoginManager } = require('react-native-facebook-login');
-import { StyleSheet, Text, View, } from 'react-native';
 import * as firebase from 'firebase';
 
-import * as auth from '../auth/auth';
+import * as auth from '../../auth/auth';
+import Login from './Login.layout';
 
-export default class Login extends Component {
+export default class LoginContainer extends Component {
 
     static propTypes = {
         onLoginSuccess: PropTypes.func.isRequired,
@@ -36,29 +35,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>
-                    Please login
-                </Text>
-                <FBLogin
-                    loginBehavior={FBLoginManager.LoginBehaviors.Native}
-                    onLogin={this.onLogin}
-                />
-            </View>
+            <Login onLogin={this.onLogin} />
         )
     }
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    homeText: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    }
-});
