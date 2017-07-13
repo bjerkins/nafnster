@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "react-native run-ios",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "storybook start -p 7007"
   },
   "dependencies": {
     "firebase": "4.1.1",
@@ -14,6 +15,7 @@
     "react-native-facebook-login": "1.5.0"
   },
   "devDependencies": {
-
+    "@storybook/react-native": "^3.1.8",
+    "react-dom": "16.0.0-alpha.12"
   }
 }

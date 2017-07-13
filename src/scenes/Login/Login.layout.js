@@ -14,7 +14,7 @@ export default class Login extends Component {
         return (
             <View style={styles.container}>
                 <Text>
-                    Please login
+                    Please loginz
                 </Text>
                 <FBLogin
                     loginBehavior={FBLoginManager.LoginBehaviors.Native}
