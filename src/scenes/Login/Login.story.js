@@ -3,11 +3,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
 import Login from './Login.layout';
 
-storiesOf('Login Scene', module)
+storiesOf('Login Scene')
     .add('Default', () =>
         <Login onLogin={action('login clicked')} />
     )
