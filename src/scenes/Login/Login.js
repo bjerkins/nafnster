@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 
 import * as auth from '../../auth/auth';
@@ -38,4 +39,4 @@ export default class LoginContainer extends Component {
             <Login onLogin={this.onLogin} />
         )
     }
-};
+}
