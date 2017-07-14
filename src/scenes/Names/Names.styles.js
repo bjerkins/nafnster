@@ -4,13 +4,17 @@ import { colors } from '../../theme/default';
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
         backgroundColor: colors.sceneBackgroundColor,
+        flex: 1,
+        flexDirection: 'column'
+    },
+    deckContainer: {
+        height: 100,
     },
     text: {
+        textAlign: 'center',
         color: 'white',
         margin: 50,
-    },
+    }
 });
 

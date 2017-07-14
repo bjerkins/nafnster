@@ -4541,7 +4541,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9:
+prop-types@15.5.10, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -4719,6 +4719,12 @@ react-modal@^1.7.6:
     lodash.assign "^4.2.0"
     prop-types "^15.5.7"
     react-dom-factories "^1.0.0"
+
+react-native-deck-swiper@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-1.2.4.tgz#1def4f3f4b0021977cef2c10c216a82f77839704"
+  dependencies:
+    prop-types "15.5.10"
 
 react-native-facebook-login@1.5.0:
   version "1.5.0"
