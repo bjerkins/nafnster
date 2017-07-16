@@ -1,0 +1,3 @@
+
+export const REQUEST_NAMES = 'REQUEST_NAMES';
+export const RECEIVE_NAMES = 'RECEIVE_NAMES';

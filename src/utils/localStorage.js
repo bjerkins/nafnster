@@ -1,8 +1,11 @@
 import { AsyncStorage } from 'react-native';
 
-export const getToken = async () => {
+export const getUser = async () => {
     try {
-        return await AsyncStorage.getItem('@auth:token');
+        const token = await AsyncStorage.getItem('@auth:token');
+        const userId = await AsyncStorage.getItem('@auth:token');
+
+        return token === null ? null : { token, userId };
     } catch (error) {
         console.error('error fetching token');
     }

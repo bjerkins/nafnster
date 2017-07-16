@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 
-import * as auth from '../../auth/auth';
+import * as localStorage from '../../utils/localStorage';
 import Login from './Login.layout';
 
 export default class LoginContainer extends Component {
@@ -19,7 +19,7 @@ export default class LoginContainer extends Component {
             .auth()
             .signInWithCredential(credential)
             .then(() => {
-                auth.setUser({ userId, token });
+                localStorage.setUser({ userId, token });
                 this.props.onLoginSuccess();
             })
             .catch(error => {

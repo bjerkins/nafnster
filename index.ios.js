@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { AppRegistry, StyleSheet, View, Modal } from 'react-native';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunkMiddleWare from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-import * as auth from './src/auth/auth';
+// utils
+import { firebaseConfig } from './src/config/firebase';
+import * as localStorage from './src/utils/localStorage';
+
+// reducers
+import { names } from './src/stores/names/reducers';
+
+// scenes
 import App from './src/scenes/App';
 import Login from './src/scenes/Login/Login';
 
-// Initialize Firebase
-const firebaseConfig = {
-    apiKey: 'AIzaSyDtmGJqBJrmwN5_LNJR2WVuGsh1fE5GHQI',
-    authDomain: 'nafnster.firebaseapp.com',
-    databaseURL: 'https://nafnster.firebaseio.com',
-    projectId: 'nafnster',
-    storageBucket: 'nafnster.appspot.com',
-    messagingSenderId: '123888301709'
-};
 firebase.initializeApp(firebaseConfig);
+
+const rootReducer = combineReducers({
+    names,
+});
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunkMiddleWare),
+);
 
 export default class Nafnster extends Component {
 
@@ -28,7 +38,7 @@ export default class Nafnster extends Component {
     }
 
     checkLogin = async () => {
-        const user = await auth.getToken();
+        const user = await localStorage.getUser();
         if (user === null) {
             this.setState({ loginModalOpen: true })
         }
@@ -39,46 +49,28 @@ export default class Nafnster extends Component {
     }
 
     onLogOutSuccess = async () => {
-        await auth.removeUser();
+        await localStorage.removeUser();
         this.setState({ loginModalOpen: true });
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                {this.state.loginModalOpen &&
-                    <Modal
-                        animationType={"slide"}
-                        transparent={false}
-                        visible={true}
-                    >
-                        <Login onLoginSuccess={this.onLoginSuccess} />
-                    </Modal>
-                }
-                {!this.state.loginModalOpen &&
-                    <App onLogOutSuccess={this.onLogOutSuccess} />
-                }
-            </View>
-            // <View style={styles.container}>
-            //     <NavigatorIOS
-            //         initialRoute={{
-            //             component: App,
-            //             title: 'Home',
-            //             passProps: { onLogOutSuccess: this.onLogOutSuccess },
-            //         }}
-            //         itemWrapperStyle={styles.itemStyles}
-            //         style={{ flex: 1 }}
-            //     />
-            //     {this.state.loginModalOpen &&
-            //         <Modal
-            //             animationType={"slide"}
-            //             transparent={false}
-            //             visible={true}
-            //         >
-            //             <Login onLoginSuccess={this.onLoginSuccess} />
-            //         </Modal>
-            //     }
-            // </View>
+            <Provider store={store}>
+                <View style={styles.container}>
+                    {this.state.loginModalOpen &&
+                        <Modal
+                            animationType={"slide"}
+                            transparent={false}
+                            visible={true}
+                        >
+                            <Login onLoginSuccess={this.onLoginSuccess} />
+                        </Modal>
+                    }
+                    {!this.state.loginModalOpen &&
+                        <App onLogOutSuccess={this.onLogOutSuccess} />
+                    }
+                </View>
+            </Provider>
         );
     }
 }
@@ -91,7 +83,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: '#F5FCFF',
     }
 });
 
