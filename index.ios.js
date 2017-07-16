@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
 import { AppRegistry, StyleSheet, View, Modal } from 'react-native';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleWare from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 // utils
-import { firebaseConfig } from './src/config/firebase';
+import { firebaseUtils } from './src/utils/firebase';
 import * as localStorage from './src/utils/localStorage';
 
 // reducers
@@ -16,7 +15,7 @@ import { names } from './src/stores/names/reducers';
 import App from './src/scenes/App';
 import Login from './src/scenes/Login/Login';
 
-firebase.initializeApp(firebaseConfig);
+firebaseUtils.initializeApp();
 
 const rootReducer = combineReducers({
     names,

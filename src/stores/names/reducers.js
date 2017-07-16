@@ -11,7 +11,7 @@ export function names(state = initialState, action) {
             return {
                 ...state,
                 data: [
-                    ...action.data
+                    ...action.names
                 ],
             };
     default:

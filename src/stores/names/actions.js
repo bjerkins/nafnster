@@ -1,6 +1,6 @@
 
 import { REQUEST_NAMES, RECEIVE_NAMES } from './actions.types';
-import firebase from 'firebase';
+import { firebaseUtils } from '../../utils/firebase';
 
 export function requestNames() {
     return {
@@ -16,17 +16,17 @@ export function receiveNames(names) {
 }
 
 export function getNames() {
-    const namesRef = firebase.database().ref().child('names');
     return dispatch => {
         dispatch(requestNames);
-        namesRef.on('value', snap => {
-            debugger;
-            const names = snap.map(child => ({
-                name: child.val(),
-                _key: child.key,
-            }));
+        const namesRef = firebaseUtils.getDatabase().ref('names/male');
 
-            dispatch(receiveNames);
+        namesRef.on('value', snap => {
+            let names = [];
+            snap.forEach(child => {
+                names.push(child.key);
+            });
+
+            dispatch(receiveNames(names));
         });
     }
 }
