@@ -7,6 +7,7 @@ import { getStorybookUI, configure } from '@storybook/react-native';
 configure(() => {
   require('./stories');
   require('../src/scenes/Login/Login.story');
+  require('../src/scenes/Names/Names.story');
   require('../src/components/Card/Card.story');
   require('../src/components/Deck/Deck.story');
 }, module);

@@ -1,5 +1,9 @@
 
-import { REQUEST_NAMES, RECEIVE_NAMES } from './actions.types';
+import {
+    REQUEST_NAMES,
+    RECEIVE_NAMES,
+    CHANGE_NAME_TYPES,
+} from './actions.types';
 import { firebaseUtils } from '../../utils/firebase';
 
 export function requestNames() {
@@ -15,18 +19,28 @@ export function receiveNames(names) {
     };
 }
 
-export function getNames() {
+export function getNames(type) {
     return dispatch => {
         dispatch(requestNames);
-        const namesRef = firebaseUtils.getDatabase().ref('names/male');
 
-        namesRef.on('value', snap => {
-            let names = [];
-            snap.forEach(child => {
-                names.push(child.key);
+        firebaseUtils
+            .getDatabase()
+            .ref('names')
+            .orderByChild('type')
+            .equalTo(type)
+            .on('value', snap => {
+                let names = [];
+                snap.forEach(child => {
+                    names.push(child.key);
+                });
+                dispatch(receiveNames(names));
             });
+    }
+}
 
-            dispatch(receiveNames(names));
-        });
+export function changeNameType(value) {
+    return {
+        type: CHANGE_NAME_TYPES,
+        value,
     }
 }

@@ -1,8 +1,15 @@
 
-import { RECEIVE_NAMES } from './actions.types';
+import {
+    RECEIVE_NAMES,
+    CHANGE_NAME_TYPES,
+} from './actions.types';
 
 const initialState = {
-    data: []
+    data: [],
+    type: {
+        query: 'male',
+        value: true,
+    },
 };
 
 export function names(state = initialState, action) {
@@ -14,6 +21,16 @@ export function names(state = initialState, action) {
                     ...action.names
                 ],
             };
+        case CHANGE_NAME_TYPES: {
+            const value = action.value;
+            return {
+                ...state,
+                type: {
+                    value: value,
+                    query: value === false ? 'female' : 'male',
+                }
+            }
+        }
     default:
         return state
     }

@@ -1,3 +1,4 @@
 
 export const REQUEST_NAMES = 'REQUEST_NAMES';
 export const RECEIVE_NAMES = 'RECEIVE_NAMES';
+export const CHANGE_NAME_TYPES = 'CHANGE_NAME_TYPES';
