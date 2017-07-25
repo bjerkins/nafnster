@@ -32,6 +32,6 @@ export function names(state = initialState, action) {
             }
         }
     default:
-        return state
+        return state;
     }
 }

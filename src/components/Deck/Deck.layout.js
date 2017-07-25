@@ -10,6 +10,7 @@ class Deck extends Component {
 
     static propTypes = {
         cards: PropTypes.arrayOf(PropTypes.string).isRequired,
+        likeName: PropTypes.func.isRequired,
     }
 
     shouldComponentUpdate(nextProps) {
@@ -17,12 +18,11 @@ class Deck extends Component {
     }
 
     render() {
-        console.log(this.props.cards);
         return (
             <SwipeCards
                 cards={this.props.cards}
                 renderCard={(card) => <Card name={card} />}
-                handleYup={(card) => console.log(card)}
+                handleYup={this.props.likeName}
                 handleNope={(card) => console.log(card)}
                 handleMaybe={(card) => console.log(card)}
                 {...swiperStyles}

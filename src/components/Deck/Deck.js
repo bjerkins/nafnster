@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Deck from './Deck.layout';
+import { likeName } from '../../stores/names/actions';
 
-class DeckContainer extends Component {
-    render() {
-        return (
-            <Deck {...this.props} />
-        );
-    }
+const mapStateToProps = (state) => {
+    return {
+        names: state.names,
+    };
 }
 
-export default DeckContainer;
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        likeName,
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Deck)

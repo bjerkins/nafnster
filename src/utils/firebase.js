@@ -11,5 +11,8 @@ export const firebaseUtils = {
             database = firebaseApp.database();
         }
     },
+
     getDatabase: () => database,
+
+    getCurrentUser: () => firebase.auth().currentUser,
 }

@@ -7,13 +7,13 @@ import styles from './Card.styles';
 class Card extends Component {
 
     static propTypes = {
-        name: PropTypes.string,
+        name: PropTypes.shape(),
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.name}</Text>
+                <Text style={styles.text}>{this.props.name.name}</Text>
             </View>
         );
     }
