@@ -12,5 +12,8 @@
     ],
     "rules": {
         // overrides
+    },
+    "globals": {
+        "require": true
     }
 }

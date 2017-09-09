@@ -8,6 +8,7 @@ class Card extends Component {
 
     static propTypes = {
         name: PropTypes.shape(),
+        gender: PropTypes.string.isRequired,
     }
 
     render() {

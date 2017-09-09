@@ -6,9 +6,13 @@ import { storiesOf } from '@storybook/react-native';
 import CenterView from '../../../storybook/stories/CenterView/index';
 import Card from './Card.layout';
 
+const name = {
+    name: 'Foo Johnson'
+};
+
 storiesOf('Card')
     .add('Default', () =>
         <CenterView>
-            <Card name="Foo Bjarkason" />
+            <Card name={name} />
         </CenterView>
     )

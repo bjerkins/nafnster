@@ -12,6 +12,6 @@ configure(() => {
   require('../src/components/Deck/Deck.story');
 }, module);
 
-const StorybookUI = getStorybookUI({ port: 7007, host: 'localhost' });
+const StorybookUI = getStorybookUI({ port: 7007, host: '192.168.0.17' });
 AppRegistry.registerComponent('Nafnster', () => StorybookUI);
 export default StorybookUI;

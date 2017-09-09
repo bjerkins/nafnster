@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
 
 import styles from './Login.styles';
@@ -13,15 +13,25 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>
-                    Please loginz
+            <Image
+                source={require('../../theme/img/bg.png')}
+                style={styles.container}
+                resizeMode="cover"
+            >
+
+                <Image
+                    source={require('../../theme/img/signup-bear.png')}
+                />
+
+                <Text style={styles.headerText}>
+                    Finndu nafnið á barnið þitt.
                 </Text>
-                <FBLogin
+
+                {/* <FBLogin
                     loginBehavior={FBLoginManager.LoginBehaviors.Native}
                     onLogin={this.props.onLogin}
-                />
-            </View>
+                /> */}
+            </Image>
         )
     }
 }
