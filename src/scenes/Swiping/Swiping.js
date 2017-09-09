@@ -5,9 +5,9 @@ import { bindActionCreators } from 'redux';
 
 import * as namesActions from '../../stores/names/actions';
 
-import Names from './Names.layout';
+import Swiping from './Swiping.layout';
 
-class NamesContainer extends Component {
+class SwipingContainer extends Component {
 
     static propTypes = {
         names: PropTypes.shape().isRequired,
@@ -31,7 +31,7 @@ class NamesContainer extends Component {
 
     render() {
         return (
-            <Names
+            <Swiping
                 {...this.props}
                 {...this.state}
             />
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NamesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SwipingContainer);

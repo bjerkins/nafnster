@@ -4,8 +4,8 @@ import { TabBarIOS } from 'react-native';
 
 import { colors } from '../theme/default';
 
-import Names from './Names/Names';
-import { namesTabIcon } from './Names/Names.icons';
+import Swiping from './Swiping/Swiping';
+import { swipingTabIcon } from './Swiping/Swiping.icons';
 
 import Profile from './Profile/Profile';
 import { profileTabIcon } from './Profile/Profile.icons';
@@ -29,11 +29,11 @@ export default class App extends Component {
             >
                 <TabBarIOS.Item
                     title="Names"
-                    icon={namesTabIcon}
+                    icon={swipingTabIcon}
                     selected={this.state.selectedTab === 'namesTab'}
                     onPress={() => this.setState({ selectedTab: 'namesTab' })}
                 >
-                    <Names />
+                    <Swiping />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title="Profile"

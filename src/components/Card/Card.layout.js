@@ -7,7 +7,7 @@ import styles from './Card.styles';
 class Card extends Component {
 
     static propTypes = {
-        name: PropTypes.shape(),
+        name: PropTypes.string.isRequired,
         gender: PropTypes.string.isRequired,
     }
 

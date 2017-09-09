@@ -1,40 +1,34 @@
 
 import React, { Component } from 'react';
-import { View, Switch } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Deck from '../../components/Deck/Deck';
-import styles from './Names.styles';
+import styles from './Swiping.styles';
 
-class Names extends Component {
+class Swiping extends Component {
 
     static propTypes = {
         names: PropTypes.shape().isRequired,
-        changeNameType: PropTypes.func.isRequired,
+        gender: PropTypes.string.isRequired,
     }
 
     render() {
         const {
             names: {
                 data,
-                type,
             },
-            changeNameType,
+            gender,
         } = this.props;
 
         return (
             <View style={styles.container}>
-                <Switch
-                    onValueChange={changeNameType}
-                    value={type.value}
-                />
-
                 <View style={styles.deckContainer}>
-                    <Deck cards={data} />
+                    <Deck cards={data} gender={gender} />
                 </View>
             </View>
         );
     }
 }
 
-export default Names;
+export default Swiping;

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
 
 import styles from './Login.styles';
+
+import ButtonFacebook from '../../components/Button/facebook/ButtonFacebook';
 
 export default class Login extends Component {
 
@@ -19,12 +21,19 @@ export default class Login extends Component {
                 resizeMode="cover"
             >
 
-                <Image
-                    source={require('../../theme/img/signup-bear.png')}
-                />
+                <Image source={require('../../theme/img/signup-bear.png')} />
 
                 <Text style={styles.headerText}>
-                    Finndu nafnið á barnið þitt.
+                    Finndu drauma nafnið á barnið þitt
+                </Text>
+
+                <ButtonFacebook
+                    buttonStyle={styles.buttonFacebook}
+                    onLogin={this.props.onLogin}
+                />
+
+                <Text style={styles.smallPrint}>
+                    Með því að skrá þig þá samþykkir þú skilmálana. Þú getur lesið meira um þá hér
                 </Text>
 
                 {/* <FBLogin

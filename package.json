@@ -5,6 +5,7 @@
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "ios": "react-native run-ios",
+        "ios-5": "react-native run-ios --simulator 'iPhone 5'",
         "test": "jest",
         "storybook": "storybook start -h 192.168.0.17 -p 7007",
         "lint": "eslint src"
