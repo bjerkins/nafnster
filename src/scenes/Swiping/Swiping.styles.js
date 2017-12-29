@@ -3,16 +3,16 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        padding: 24
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: 40,
+        paddingRight: 40,
     },
     deckContainer: {
-        height: 100,
-    },
-    text: {
-        textAlign: 'center',
-        color: 'white',
-        margin: 50,
+        flex: 1,
+        height: 105,
+        backgroundColor: 'gray'
     }
 });
 

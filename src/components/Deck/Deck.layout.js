@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SwipeCards from 'react-native-swipe-cards'
 
-import swiperStyles from './Deck.styles'
+import styles from './Deck.styles';
 import Card from '../../components/Card/Card';
 
 class Deck extends Component {
 
     static propTypes = {
-        cards: PropTypes.arrayOf(PropTypes.string).isRequired,
+        surname: PropTypes.string,
+        cards: PropTypes.arrayOf(PropTypes.shape()).isRequired,
         gender: PropTypes.string.isRequired,
         likeName: PropTypes.func.isRequired,
     }
@@ -23,12 +24,19 @@ class Deck extends Component {
             <SwipeCards
                 cards={this.props.cards}
                 renderCard={(card) => (
-                    <Card name={card} gender={this.props.gender}
-                />)}
+                    <Card
+                        key={card.key}
+                        name={card.name}
+                        gender={this.props.gender}
+                        surname={this.props.surname}
+                    />)
+                }
                 handleYup={this.props.likeName}
                 handleNope={(card) => console.log(card)}
-                handleMaybe={(card) => console.log(card)}
-                {...swiperStyles}
+                showYup={false}
+                showNope={false}
+                stackOffsetX={0}
+                style={styles.container}
             />
         );
     }

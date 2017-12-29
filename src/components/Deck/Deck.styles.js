@@ -1,8 +1,8 @@
+import { StyleSheet } from 'react-native';
 
-export const swiperStyles = {
-    backgroundColor: 'transparent',
-    cardHorizontalMargin: 0,
-    cardVerticalMargin: 0,
-}
-
-export default swiperStyles;
+export default StyleSheet.create({
+    container: {
+        flexDirection: 'column',
+        alignItems: 'stretch',
+    }
+});

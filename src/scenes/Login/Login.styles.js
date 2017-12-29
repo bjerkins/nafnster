@@ -3,8 +3,6 @@ export default {
         flex: 1,
         paddingLeft: 40,
         paddingRight: 40,
-        height: undefined,
-        width: undefined,
         alignItems: "center",
         justifyContent: "center",
     },

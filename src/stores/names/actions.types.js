@@ -8,3 +8,4 @@ export const SUCCESS_LIKE_NAME = 'SUCCESS_LIKE_NAME';
 
 // synchronous actions
 export const CHANGE_NAME_TYPES = 'CHANGE_NAME_TYPES';
+export const CHANGE_SURNAME = 'CHANGE_SURNAME';

@@ -4,6 +4,7 @@ import {
     RECEIVE_NAMES,
     REQUEST_LIKE_NAME,
     CHANGE_NAME_TYPES,
+    CHANGE_SURNAME,
 } from './actions.types';
 import { firebaseUtils } from '../../utils/firebase';
 
@@ -52,6 +53,13 @@ export function likeName({ key }) {
 export function changeNameType(value) {
     return {
         type: CHANGE_NAME_TYPES,
+        value,
+    }
+}
+
+export function changeSurname(value) {
+    return {
+        type: CHANGE_SURNAME,
         value,
     }
 }

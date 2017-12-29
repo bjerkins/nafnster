@@ -7,14 +7,19 @@ import styles from './Card.styles';
 class Card extends Component {
 
     static propTypes = {
+        surname: PropTypes.string,
         name: PropTypes.string.isRequired,
         gender: PropTypes.string.isRequired,
     }
 
     render() {
+        const showSurname = !!this.props.surname;
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.name.name}</Text>
+                <Text style={styles.name}>{this.props.name}</Text>
+                {showSurname &&
+                    <Text style={styles.surname}>{this.props.surname}</Text>
+                }
             </View>
         );
     }

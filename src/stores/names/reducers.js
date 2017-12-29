@@ -2,6 +2,7 @@
 import {
     RECEIVE_NAMES,
     CHANGE_NAME_TYPES,
+    CHANGE_SURNAME,
 } from './actions.types';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
         query: 'male',
         value: true,
     },
+    surname: '',
 };
 
 export function names(state = initialState, action) {
@@ -31,6 +33,11 @@ export function names(state = initialState, action) {
                 }
             }
         }
+        case CHANGE_SURNAME:
+            return {
+                ...state,
+                surname: action.surname,
+            }
     default:
         return state;
     }

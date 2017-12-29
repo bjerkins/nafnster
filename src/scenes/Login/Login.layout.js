@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
-import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
+import { Image, Text } from 'react-native';
 
 import styles from './Login.styles';
 
