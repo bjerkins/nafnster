@@ -32,7 +32,7 @@ class Deck extends Component {
                     />)
                 }
                 handleYup={this.props.likeName}
-                handleNope={(card) => console.log(card)}
+                handleNope={(card) => console.log('NOPE', card)}
                 showYup={false}
                 showNope={false}
                 stackOffsetX={0}
