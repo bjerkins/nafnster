@@ -35,10 +35,6 @@ export default class Login extends Component {
                     Með því að skrá þig þá samþykkir þú skilmálana. Þú getur lesið meira um þá hér
                 </Text>
 
-                {/* <FBLogin
-                    loginBehavior={FBLoginManager.LoginBehaviors.Native}
-                    onLogin={this.props.onLogin}
-                /> */}
             </Image>
         )
     }

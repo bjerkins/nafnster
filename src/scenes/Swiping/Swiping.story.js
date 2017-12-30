@@ -24,12 +24,16 @@ storiesOf('Swiping Scene')
         <Swiping
             names={names}
             likeName={action('name liked')}
+            randomize={action('randomizing')}
+            dislikeName={action('name disliked')}
             gender="male"
         />
     )).add('Male with surname', () => (
         <Swiping
             names={names}
             likeName={action('name liked')}
+            randomize={action('randomizing')}
+            dislikeName={action('name disliked')}
             gender="male"
             surname="Bjarkason"
         />
@@ -37,12 +41,16 @@ storiesOf('Swiping Scene')
         <Swiping
             names={names}
             likeName={action('name liked')}
+            randomize={action('randomizing')}
+            dislikeName={action('name disliked')}
             gender="female"
         />
     )).add('Female with surname', () => (
         <Swiping
             names={names}
             likeName={action('name liked')}
+            randomize={action('randomizing')}
+            dislikeName={action('name disliked')}
             gender="female"
             surname="Bjarkadóttir"
         />

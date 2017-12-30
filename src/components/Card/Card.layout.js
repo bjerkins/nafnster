@@ -24,11 +24,12 @@ class Card extends Component {
 
                 <Text style={styles.name}>{this.props.name}</Text>
 
+                <View className="wot" style={styles.dashedLine} />
+
                 {showSurname &&
                     <Text style={styles.surname}>{this.props.surname}</Text>
                 }
 
-                <View style={styles.dashedLine} />
 
             </View>
         );

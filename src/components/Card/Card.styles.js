@@ -9,7 +9,9 @@ export default {
         shadowOpacity: 0.2,
         shadowOffset: { height: 4 },
         shadowRadius: 4,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        paddingLeft: 30,
+        paddingRight: 30
     },
     name: {
         fontFamily: 'Lato-Bold',
@@ -33,13 +35,10 @@ export default {
         bottom: -31,
     },
     dashedLine: {
-        height: 5,
-        backgroundColor: 'red',
-        borderBottomColor: 'red',
+        width: '100%',
+        borderBottomColor: '#d2d2d2',
         borderBottomWidth: 1,
-        // borderStyle: 'dotted',
-        // marginLeft: 30,
-        // marginRight: 30,
+        marginTop: 20
     }
 };
 

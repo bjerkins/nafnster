@@ -1,6 +1,8 @@
 export default {
     container: {
         flex: 1,
+        height: undefined,
+        width: undefined,
         paddingLeft: 40,
         paddingRight: 40,
         alignItems: "center",

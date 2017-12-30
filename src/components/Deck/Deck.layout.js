@@ -42,6 +42,7 @@ class Deck extends Component {
                     showNope={false}
                     style={styles.swipeCards}
                 />
+
             </View>
         );
     }

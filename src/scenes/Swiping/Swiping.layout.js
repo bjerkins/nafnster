@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Deck from '../../components/Deck/Deck';
 import styles from './Swiping.styles';
+
+const actionIcons = {
+    like: require('../../theme/img/icon-like.png'),
+    dislike: require('../../theme/img/icon-dislike.png'),
+    randomize: require('../../theme/img/icon-randomize.png'),
+}
 
 class Swiping extends Component {
 
@@ -12,6 +18,22 @@ class Swiping extends Component {
         names: PropTypes.shape().isRequired,
         gender: PropTypes.string.isRequired,
         likeName: PropTypes.func.isRequired,
+        dislikeName: PropTypes.func.isRequired,
+        randomize: PropTypes.func.isRequired,
+    }
+
+    renderActionButton = (type, actionHandler) => {
+        return (
+            <TouchableOpacity
+                style={styles.actionButton}
+                onPress={actionHandler}
+            >
+                <Image
+                    source={actionIcons[type]}
+                    style={styles.actionIcon    }
+                />
+            </TouchableOpacity>
+        );
     }
 
     render() {
@@ -22,6 +44,8 @@ class Swiping extends Component {
             gender,
             surname,
             likeName,
+            dislikeName,
+            randomize,
         } = this.props;
 
         return (
@@ -36,6 +60,13 @@ class Swiping extends Component {
                     surname={surname}
                     likeName={likeName}
                 />
+
+                <View style={styles.actions}>
+                    {this.renderActionButton('dislike', dislikeName)}
+                    {this.renderActionButton('randomize', randomize)}
+                    {this.renderActionButton('like', likeName)}
+                </View>
+
             </Image>
         );
     }
