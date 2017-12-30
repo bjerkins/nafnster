@@ -7,29 +7,29 @@
         "ios": "react-native run-ios",
         "ios-5": "react-native run-ios --simulator 'iPhone 5'",
         "test": "jest",
-        "storybook": "storybook start -h 0.0.0.0 -p 7007",
+        "storybook": "storybook start -p 7007",
         "lint": "eslint src"
     },
     "dependencies": {
-        "appcenter": "^1.1.0",
-        "appcenter-analytics": "^1.1.0",
-        "appcenter-crashes": "^1.1.0",
+        "appcenter": "1.1.0",
+        "appcenter-analytics": "1.1.0",
+        "appcenter-crashes": "1.1.0",
         "firebase": "4.1.1",
         "react": "16.0.0-alpha.12",
         "react-native": "0.45.1",
         "react-native-facebook-login": "1.5.0",
         "react-native-swipe-cards": "https://github.com/bjerkins/react-native-tinder-swipe-cards.git",
-        "react-redux": "^5.0.5",
-        "redux": "^3.7.2",
-        "redux-thunk": "^2.2.0"
+        "react-redux": "5.0.5",
+        "redux": "3.7.2",
+        "redux-thunk": "2.2.0"
     },
     "devDependencies": {
         "@storybook/react-native": "3.1.8",
-        "babel-eslint": "^7.2.3",
-        "eslint": "^4.2.0",
-        "eslint-plugin-react": "^7.1.0",
+        "babel-eslint": "7.2.3",
+        "eslint": "4.2.0",
+        "eslint-plugin-react": "7.1.0",
         "react-dom": "16.0.0-alpha.12",
-        "redux-devtools": "^3.4.0"
+        "redux-devtools": "3.4.0"
     },
     "rnpm": {
         "assets": [

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import SwipeCards from 'react-native-swipe-cards'
 
@@ -21,23 +22,27 @@ class Deck extends Component {
 
     render() {
         return (
-            <SwipeCards
-                cards={this.props.cards}
-                renderCard={(card) => (
-                    <Card
-                        key={card.key}
-                        name={card.name}
-                        gender={this.props.gender}
-                        surname={this.props.surname}
-                    />)
-                }
-                handleYup={this.props.likeName}
-                handleNope={(card) => console.log('NOPE', card)}
-                showYup={false}
-                showNope={false}
-                stackOffsetX={0}
-                style={styles.container}
-            />
+            <View style={styles.container}>
+                <View style={{...styles.deckBackground, ...styles.deckBack}} />
+                <View style={{...styles.deckBackground, ...styles.deckMiddle}} />
+
+                <SwipeCards
+                    cards={this.props.cards}
+                    renderCard={(card) => (
+                        <Card
+                            key={card.key}
+                            name={card.name}
+                            gender={this.props.gender}
+                            surname={this.props.surname}
+                        />)
+                    }
+                    handleYup={this.props.likeName}
+                    handleNope={(card) => console.log('NOPE', card)}
+                    showYup={false}
+                    showNope={false}
+                    style={styles.swipeCards}
+                />
+            </View>
         );
     }
 }

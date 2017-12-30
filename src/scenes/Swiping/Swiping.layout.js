@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, Text } from 'react-native';
+import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Deck from '../../components/Deck/Deck';
@@ -26,18 +26,16 @@ class Swiping extends Component {
 
         return (
             <Image
-                source={require('../../theme/img/bg.png')}
                 style={styles.container}
+                source={require('../../theme/img/bg.png')}
                 resizeMode="cover"
             >
-                <View style={styles.deckContainer}>
-                    <Deck
-                        cards={data}
-                        gender={gender}
-                        surname={surname}
-                        likeName={likeName}
-                    />
-                </View>
+                <Deck
+                    cards={data}
+                    gender={gender}
+                    surname={surname}
+                    likeName={likeName}
+                />
             </Image>
         );
     }
