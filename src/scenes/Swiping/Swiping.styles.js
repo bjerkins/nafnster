@@ -23,7 +23,7 @@ export default StyleSheet.create({
         backgroundColor: 'transparent',
         borderRadius: 100,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     }
 });
 

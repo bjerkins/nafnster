@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, Modal } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Deck from '../../components/Deck/Deck';
@@ -15,6 +15,7 @@ class Swiping extends Component {
 
     static propTypes = {
         surname: PropTypes.string,
+        matchModalVisible: PropTypes.bool.isRequired,
         names: PropTypes.shape().isRequired,
         gender: PropTypes.string.isRequired,
         likeName: PropTypes.func.isRequired,
@@ -28,10 +29,7 @@ class Swiping extends Component {
                 style={styles.actionButton}
                 onPress={actionHandler}
             >
-                <Image
-                    source={actionIcons[type]}
-                    style={styles.actionIcon    }
-                />
+                <Image source={actionIcons[type]} />
             </TouchableOpacity>
         );
     }
@@ -41,6 +39,7 @@ class Swiping extends Component {
             names: {
                 data,
             },
+            matchModalVisible,
             gender,
             surname,
             likeName,
@@ -66,6 +65,13 @@ class Swiping extends Component {
                     {this.renderActionButton('randomize', randomize)}
                     {this.renderActionButton('like', likeName)}
                 </View>
+
+                <Modal
+                    animationType={"slide"}
+                    transparent={false}
+                    visible={matchModalOpen}
+                >
+                </Modal>
 
             </Image>
         );
