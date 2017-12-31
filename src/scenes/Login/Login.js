@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
+import Analytics from 'appcenter-analytics';
 
 import * as localStorage from '../../utils/localStorage';
 import Login from './Login.layout';
@@ -13,6 +14,9 @@ export default class LoginContainer extends Component {
     };
 
     onLogin = () => {
+        Analytics.trackEvent('Facebook Button Click', {
+            Category: 'Social'
+        });
         FBLoginManager.loginWithPermissions(["email","user_friends"], (error, data) => {
             if (error) {
                 console.log("Error: ", error);

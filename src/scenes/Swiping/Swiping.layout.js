@@ -39,7 +39,6 @@ class Swiping extends Component {
             names: {
                 data,
             },
-            matchModalVisible,
             gender,
             surname,
             likeName,
@@ -69,7 +68,7 @@ class Swiping extends Component {
                 <Modal
                     animationType={"slide"}
                     transparent={false}
-                    visible={matchModalOpen}
+                    visible={false}
                 >
                 </Modal>
 
