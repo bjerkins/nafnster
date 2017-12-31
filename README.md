@@ -1,6 +1,5 @@
-# Nafnster
+# Nafnster ![badge](https://build.appcenter.ms/v0.1/apps/1646ebef-b35d-4843-b284-cec101b76a86/branches/master/badge)
 > Finding a name for your kid that both of you like has never been easier!
-![badge](https://build.appcenter.ms/v0.1/apps/1646ebef-b35d-4843-b284-cec101b76a86/branches/master/badge)
 
 ## Running locally
 
