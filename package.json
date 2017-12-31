@@ -5,6 +5,7 @@
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "ios": "react-native run-ios",
+        "device": "react-native run-ios --device 'iPhone'",
         "ios-5": "react-native run-ios --simulator 'iPhone 5'",
         "test": "jest",
         "storybook": "storybook start -p 7007",
@@ -16,7 +17,7 @@
         "appcenter-crashes": "1.1.0",
         "firebase": "4.1.1",
         "react": "16.0.0-alpha.12",
-        "react-native": "0.45.1",
+        "react-native": "0.51.0",
         "react-native-facebook-login": "1.5.0",
         "react-native-swipe-cards": "https://github.com/bjerkins/react-native-tinder-swipe-cards.git",
         "react-redux": "5.0.5",
