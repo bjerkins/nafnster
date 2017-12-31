@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { background } from '../../theme/default';
 
 export default StyleSheet.create({
+    background,
     container: {
         flex: 1,
-        height: undefined,
-        width: undefined,
         justifyContent: "center",
         paddingLeft: 40,
         paddingRight: 40,

@@ -1,8 +1,9 @@
+import { background } from '../../theme/default';
+
 export default {
+    background,
     container: {
         flex: 1,
-        height: undefined,
-        width: undefined,
         paddingLeft: 40,
         paddingRight: 40,
         alignItems: "center",

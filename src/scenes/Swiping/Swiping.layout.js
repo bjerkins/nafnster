@@ -47,11 +47,13 @@ class Swiping extends Component {
         } = this.props;
 
         return (
-            <Image
-                style={styles.container}
-                source={require('../../theme/img/bg.png')}
-                resizeMode="cover"
-            >
+            <View style={styles.container}>
+                {/* TODO: turn into component */}
+                {/* <Image
+                    style={styles.background}
+                    source={require('../../theme/img/bg.png')}
+                    resizeMode="cover"
+                /> */}
                 <Deck
                     cards={data}
                     gender={gender}
@@ -72,7 +74,7 @@ class Swiping extends Component {
                 >
                 </Modal>
 
-            </Image>
+            </View>
         );
     }
 }
