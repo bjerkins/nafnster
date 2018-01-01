@@ -12,7 +12,10 @@
     "users": {
       "$uid": {
         ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
+        ".write": "$uid === auth.uid",
+        "likes": {
+            ".read": "$uid === auth.uid || (root.child('users').child($uid).child('link/with').val() == auth.uid && root.child('users').child($uid).child('link/status').val() == 'accepted')"
+        }
       }
     }
   }
