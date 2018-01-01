@@ -15,3 +15,8 @@ export const background = {
     width: undefined,
     height: undefined,
 }
+
+export const fontBold = {
+    fontFamily: 'Lato-Bold',
+    backgroundColor: 'transparent',
+}

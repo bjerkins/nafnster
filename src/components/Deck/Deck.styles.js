@@ -1,17 +1,6 @@
 // import { StyleSheet } from 'react-native';
 
 export default {
-    container: {
-        // flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-    },
-    swipeCards: {
-        // flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // borderRadius: 4,
-    },
     deckBackground: {
         position: 'absolute',
         height: 200,

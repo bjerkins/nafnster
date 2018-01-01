@@ -8,6 +8,7 @@ configure(() => {
   require('./stories');
   require('../src/scenes/Login/Login.story');
   require('../src/scenes/Swiping/Swiping.story');
+  require('../src/scenes/Profile/Profile.story');
   require('../src/components/Card/Card.story');
   require('../src/components/Deck/Deck.story');
 }, module);
