@@ -10,7 +10,9 @@ import Swiping from './Swiping.layout';
 class SwipingContainer extends Component {
 
     static propTypes = {
-        names: PropTypes.shape().isRequired,
+        names: PropTypes.shape({
+            type: PropTypes.shape(),
+        }).isRequired,
         getNames: PropTypes.func.isRequired,
     }
 
@@ -40,8 +42,9 @@ class SwipingContainer extends Component {
 }
 
 function mapStateToProps(state) {
-    const { names } = state;
-    return { names };
+    return {
+        names: state.names,
+    };
 }
 
 function mapDispatchToProps(dispatch) {

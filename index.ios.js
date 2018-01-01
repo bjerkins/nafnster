@@ -10,6 +10,7 @@ import * as localStorage from './src/utils/localStorage';
 
 // reducers
 import { names } from './src/stores/names/reducers';
+import { user } from './src/stores/user/reducers';
 
 // scenes
 import App from './src/scenes/App';
@@ -19,6 +20,7 @@ firebaseUtils.initializeApp();
 
 const rootReducer = combineReducers({
     names,
+    user
 });
 
 export const store = createStore(

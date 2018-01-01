@@ -48,12 +48,11 @@ class Swiping extends Component {
 
         return (
             <View style={styles.container}>
-                {/* TODO: turn into component */}
-                {/* <Image
+                <Image
                     style={styles.background}
                     source={require('../../theme/img/bg.png')}
                     resizeMode="cover"
-                /> */}
+                />
                 <Deck
                     cards={data}
                     gender={gender}

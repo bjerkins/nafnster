@@ -38,7 +38,7 @@ export function names(state = initialState, action) {
                 ...state,
                 surname: action.surname,
             }
-    default:
-        return state;
+        default:
+            return state;
     }
 }

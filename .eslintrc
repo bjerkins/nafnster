@@ -14,6 +14,7 @@
         // overrides
     },
     "globals": {
-        "require": true
+        "require": true,
+        "exports": true
     }
 }
